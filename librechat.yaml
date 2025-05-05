@@ -1,18 +1,39 @@
 # librechat.yaml
+version: "1"
+
+balance:
+  enabled: true           # replaces CHECK_BALANCE env var
+  startBalance: 100000    # initial tokens per user
+  autoRefillEnabled: true
+  refillIntervalUnit: "month"
+  refillIntervalValue: 1
+  refillAmount: 100000
+
 endpoints:
   custom:
     - name: "OpenAI"
       apiKey: "${OPENAI_API_KEY}"
       baseURL: "https://api.openai.com"
       models:
+        default: []        # must be present
         fetch: true
       titleConvo: true
       modelDisplayLabel: "OpenAI"
+
+    - name: "Claude"
+      apiKey: "${ANTHROPIC_API_KEY}"
+      baseURL: "https://api.anthropic.com"
+      models:
+        default: []
+        fetch: true
+      titleConvo: true
+      modelDisplayLabel: "Claude"
 
     - name: "Gemini"
       apiKey: "${GOOGLE_KEY}"
       baseURL: "https://generativelanguage.googleapis.com/v1beta2/models"
       models:
+        default: []
         fetch: true
       titleConvo: true
       modelDisplayLabel: "Gemini"
@@ -21,15 +42,16 @@ endpoints:
       apiKey: "${PERPLEXITY_API_KEY}"
       baseURL: "https://api.perplexity.ai/"
       models:
+        default: []
         fetch: true
       titleConvo: true
-      dropParams: ["stop", "frequency_penalty"]
       modelDisplayLabel: "Perplexity"
 
     - name: "Deepseek"
       apiKey: "${DEEPSEEK_API_KEY}"
       baseURL: "https://api.deepseek.com/v1"
       models:
+        default: []
         fetch: true
       titleConvo: true
       modelDisplayLabel: "Deepseek"
@@ -38,6 +60,7 @@ endpoints:
       apiKey: "${XAI_API_KEY}"
       baseURL: "https://api.x.ai/v1"
       models:
+        default: []
         fetch: true
       titleConvo: true
       titleMethod: "completion"
