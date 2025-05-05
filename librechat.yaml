@@ -1,5 +1,6 @@
 # librechat.yaml
-version: "1"
+version: 1.1.4
+cache: true
 
 balance:
   enabled: true           # replaces CHECK_BALANCE env var
@@ -11,57 +12,47 @@ balance:
 
 endpoints:
   custom:
-    - name: "OpenAI"
-      apiKey: "${OPENAI_API_KEY}"
-      baseURL: "https://api.openai.com"
-      models:
-        default: []        # must be present
-        fetch: true
-      titleConvo: true
-      modelDisplayLabel: "OpenAI"
-
-    - name: "Claude"
-      apiKey: "${ANTHROPIC_API_KEY}"
-      baseURL: "https://api.anthropic.com"
-      models:
-        default: []
-        fetch: true
-      titleConvo: true
-      modelDisplayLabel: "Claude"
-
-    - name: "Gemini"
-      apiKey: "${GOOGLE_KEY}"
-      baseURL: "https://generativelanguage.googleapis.com/v1beta2/models"
-      models:
-        default: []
-        fetch: true
-      titleConvo: true
-      modelDisplayLabel: "Gemini"
-
     - name: "Perplexity"
       apiKey: "${PERPLEXITY_API_KEY}"
       baseURL: "https://api.perplexity.ai/"
       models:
-        default: []
-        fetch: true
+        default: [
+          "sonar-deep-research",
+          "sonar-reasoning-pro",
+          "sonar-reasoning",
+          "sonar-pro",
+          "sonar",
+          "r1-1776"
+          ]
+        fetch: false # fetching list of models is not supported
       titleConvo: true
+      titleModel: "llama-3-sonar-small-32k-chat"
+      summarize: false
+      summaryModel: "llama-3-sonar-small-32k-chat"
+      forcePrompt: false
+      dropParams: ["stop", "frequency_penalty"]
       modelDisplayLabel: "Perplexity"
 
     - name: "Deepseek"
       apiKey: "${DEEPSEEK_API_KEY}"
       baseURL: "https://api.deepseek.com/v1"
       models:
-        default: []
-        fetch: true
+        default: ["deepseek-chat", "deepseek-coder", "deepseek-reasoner"]
+        fetch: false
       titleConvo: true
+      titleModel: "deepseek-chat"
       modelDisplayLabel: "Deepseek"
 
-    - name: "Grok"
+    - name: "xai"
       apiKey: "${XAI_API_KEY}"
       baseURL: "https://api.x.ai/v1"
       models:
-        default: []
-        fetch: true
+        default: ["grok-beta"]
+        fetch: false
       titleConvo: true
       titleMethod: "completion"
+      titleModel: "grok-beta"
+      summarize: false
+      summaryModel: "grok-beta"
+      forcePrompt: false
       modelDisplayLabel: "Grok"
