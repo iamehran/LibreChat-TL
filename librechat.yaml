@@ -5,45 +5,66 @@ cache: true
 balance:
   enabled: false
 
+  plugins:
+  image:
+    providers:
+      - name: "OpenAI"
+        apiKey: "${OPENAI_API_KEY}"
+        models:
+          fetch: true
+
 endpoints:
   custom:
+    - name: "OpenAI"
+      apiKey: "${OPENAI_API_KEY}"
+      baseURL: "https://api.openai.com"
+      models:
+        default: []       # empty + fetch:true → list every chat model
+        fetch: true
+      titleConvo: true
+      modelDisplayLabel: "OpenAI"
+
     - name: "Perplexity"
       apiKey: "${PERPLEXITY_API_KEY}"
       baseURL: "https://api.perplexity.ai/"
       models:
-        default: [
-          "sonar-deep-research",
-          "sonar-reasoning-pro",
-          "sonar-reasoning",
-          "sonar-pro",
-          "sonar",
-          "r1-1776"
-          ]
-        fetch: false # fetching list of models is not supported
+        default:
+          - "sonar-deep-research"
+          - "sonar-reasoning-pro"
+          - "sonar-reasoning"
+          - "sonar-pro"
+          - "sonar"
+          - "r1-1776"
+        fetch: false      # Perplexity doesn’t support model list fetch
       titleConvo: true
-      titleModel: "llama-3-sonar-small-32k-chat"
+      titleModel: "sonar-deep-research"
       summarize: false
-      summaryModel: "llama-3-sonar-small-32k-chat"
+      summaryModel: "sonar-deep-research"
       forcePrompt: false
-      dropParams: ["stop", "frequency_penalty"]
+      dropParams:
+        - "stop"
+        - "frequency_penalty"
       modelDisplayLabel: "Perplexity"
-
 
     - name: "Deepseek"
       apiKey: "${DEEPSEEK_API_KEY}"
       baseURL: "https://api.deepseek.com/v1"
       models:
-        default: ["deepseek-chat", "deepseek-coder", "deepseek-reasoner"]
+        default:
+          - "deepseek-chat"
+          - "deepseek-coder"
+          - "deepseek-reasoner"
         fetch: false
       titleConvo: true
       titleModel: "deepseek-chat"
       modelDisplayLabel: "Deepseek"
 
-    - name: "xai"
+    - name: "Grok"
       apiKey: "${XAI_API_KEY}"
       baseURL: "https://api.x.ai/v1"
       models:
-        default: ["grok-beta"]
+        default:
+          - "grok-beta"
         fetch: false
       titleConvo: true
       titleMethod: "completion"
