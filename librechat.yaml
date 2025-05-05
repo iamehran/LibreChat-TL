@@ -1,32 +1,44 @@
-# librechat.yaml
-version: 1.1.4
+# ─────────────────────────────────────────────────────────────
+# Root of your librechat.yaml
+version: "1.1.2"
 cache: true
 
 balance:
   enabled: false
 
-
 endpoints:
   custom:
+    # ─── OpenAI (dynamic fetch of all chat models) ───────────
     - name: "OpenAI"
       apiKey: "${OPENAI_API_KEY}"
       baseURL: "https://api.openai.com"
       models:
-        default: []       # empty + fetch:true → list every chat model
+        default: []       # empty + fetch: true → all GPT models
         fetch: true
       titleConvo: true
       modelDisplayLabel: "OpenAI"
 
+    # ─── Anthropic Claude (all available Claudes) ─────────────
     - name: "Claude"
       apiKey: "${ANTHROPIC_API_KEY}"
       baseURL: "https://api.anthropic.com"
       models:
-        default: []      # empty + fetch:true → list all available Claude models
+        default: []
         fetch: true
       titleConvo: true
       modelDisplayLabel: "Claude"
 
+    # ─── Gemini (dynamic fetch, includes 2.5+) ────────────────
+    - name: "Gemini"
+      apiKey: "${GOOGLE_KEY}"
+      baseURL: "https://generativelanguage.googleapis.com/v1beta2/models"
+      models:
+        default: []
+        fetch: true
+      titleConvo: true
+      modelDisplayLabel: "Gemini"
 
+    # ─── Perplexity (static list) ─────────────────────────────
     - name: "Perplexity"
       apiKey: "${PERPLEXITY_API_KEY}"
       baseURL: "https://api.perplexity.ai/"
@@ -38,7 +50,7 @@ endpoints:
           - "sonar-pro"
           - "sonar"
           - "r1-1776"
-        fetch: false      # Perplexity doesn’t support model list fetch
+        fetch: false
       titleConvo: true
       titleModel: "sonar-deep-research"
       summarize: false
@@ -49,6 +61,7 @@ endpoints:
         - "frequency_penalty"
       modelDisplayLabel: "Perplexity"
 
+    # ─── Deepseek (static list) ────────────────────────────────
     - name: "Deepseek"
       apiKey: "${DEEPSEEK_API_KEY}"
       baseURL: "https://api.deepseek.com/v1"
@@ -62,6 +75,7 @@ endpoints:
       titleModel: "deepseek-chat"
       modelDisplayLabel: "Deepseek"
 
+    # ─── Grok (xAI) ─────────────────────────────────────────────
     - name: "Grok"
       apiKey: "${XAI_API_KEY}"
       baseURL: "https://api.x.ai/v1"
@@ -76,3 +90,4 @@ endpoints:
       summaryModel: "grok-beta"
       forcePrompt: false
       modelDisplayLabel: "Grok"
+# ─────────────────────────────────────────────────────────────
