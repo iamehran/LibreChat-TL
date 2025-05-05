@@ -1,0 +1,28 @@
+# librechat.yaml
+endpoints:
+  custom:
+    - name: "Perplexity"
+      apiKey: "${PERPLEXITY_API_KEY}"
+      baseURL: "https://api.perplexity.ai/"
+      models:
+        fetch: true
+      titleConvo: true
+      dropParams: ["stop", "frequency_penalty"]
+      modelDisplayLabel: "Perplexity"
+
+    - name: "Deepseek"
+      apiKey: "${DEEPSEEK_API_KEY}"
+      baseURL: "https://api.deepseek.com/v1"
+      models:
+        fetch: true
+      titleConvo: true
+      modelDisplayLabel: "Deepseek"
+
+    - name: "Grok"
+      apiKey: "${XAI_API_KEY}"
+      baseURL: "https://api.x.ai/v1"
+      models:
+        fetch: true
+      titleConvo: true
+      titleMethod: "completion"
+      modelDisplayLabel: "Grok"
