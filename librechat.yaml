@@ -5,13 +5,6 @@ cache: true
 balance:
   enabled: false
 
-  plugins:
-  image:
-    providers:
-      - name: "OpenAI"
-        apiKey: "${OPENAI_API_KEY}"
-        models:
-          fetch: true
 
 endpoints:
   custom:
