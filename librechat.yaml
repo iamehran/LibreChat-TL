@@ -3,12 +3,7 @@ version: 1.1.4
 cache: true
 
 balance:
-  enabled: true           # replaces CHECK_BALANCE env var
-  startBalance: 100000    # initial tokens per user
-  autoRefillEnabled: true
-  refillIntervalUnit: "months"
-  refillIntervalValue: 1
-  refillAmount: 100000
+  enabled: false
 
 endpoints:
   custom:
