@@ -8,36 +8,6 @@ balance:
 
 endpoints:
   custom:
-    # ─── OpenAI (dynamic fetch of all chat models) ───────────
-    - name: "OpenAI"
-      apiKey: "${OPENAI_API_KEY}"
-      baseURL: "https://api.openai.com"
-      models:
-        default: []       # empty + fetch: true → all GPT models
-        fetch: true
-      titleConvo: true
-      modelDisplayLabel: "OpenAI"
-
-    # ─── Anthropic Claude (all available Claudes) ─────────────
-    - name: "Claude"
-      apiKey: "${ANTHROPIC_API_KEY}"
-      baseURL: "https://api.anthropic.com"
-      models:
-        default: []
-        fetch: true
-      titleConvo: true
-      modelDisplayLabel: "Claude"
-
-    # ─── Gemini (dynamic fetch, includes 2.5+) ────────────────
-    - name: "Gemini"
-      apiKey: "${GOOGLE_KEY}"
-      baseURL: "https://generativelanguage.googleapis.com/v1beta2/models"
-      models:
-        default: []
-        fetch: true
-      titleConvo: true
-      modelDisplayLabel: "Gemini"
-
     # ─── Perplexity (static list) ─────────────────────────────
     - name: "Perplexity"
       apiKey: "${PERPLEXITY_API_KEY}"
