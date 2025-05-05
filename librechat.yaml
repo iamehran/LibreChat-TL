@@ -17,6 +17,16 @@ endpoints:
       titleConvo: true
       modelDisplayLabel: "OpenAI"
 
+    - name: "Claude"
+      apiKey: "${ANTHROPIC_API_KEY}"
+      baseURL: "https://api.anthropic.com"
+      models:
+        default: []      # empty + fetch:true → list all available Claude models
+        fetch: true
+      titleConvo: true
+      modelDisplayLabel: "Claude"
+
+
     - name: "Perplexity"
       apiKey: "${PERPLEXITY_API_KEY}"
       baseURL: "https://api.perplexity.ai/"
