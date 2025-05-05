@@ -6,7 +6,7 @@ balance:
   enabled: true           # replaces CHECK_BALANCE env var
   startBalance: 100000    # initial tokens per user
   autoRefillEnabled: true
-  refillIntervalUnit: "month"
+  refillIntervalUnit: "months"
   refillIntervalValue: 1
   refillAmount: 100000
 
