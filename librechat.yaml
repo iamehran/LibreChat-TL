@@ -43,22 +43,21 @@ endpoints:
       apiKey: "${PERPLEXITY_API_KEY}"
       baseURL: "https://api.perplexity.ai/"
       models:
-        default:
-          - "sonar-deep-research"
-          - "sonar-reasoning-pro"
-          - "sonar-reasoning"
-          - "sonar-pro"
-          - "sonar"
-          - "r1-1776"
-        fetch: false
+        default: [
+          "sonar-deep-research",
+          "sonar-reasoning-pro",
+          "sonar-reasoning",
+          "sonar-pro",
+          "sonar",
+          "r1-1776"
+          ]
+        fetch: false # fetching list of models is not supported
       titleConvo: true
-      titleModel: "sonar-deep-research"
+      titleModel: "llama-3-sonar-small-32k-chat"
       summarize: false
-      summaryModel: "sonar-deep-research"
+      summaryModel: "llama-3-sonar-small-32k-chat"
       forcePrompt: false
-      dropParams:
-        - "stop"
-        - "frequency_penalty"
+      dropParams: ["stop", "frequency_penalty"]
       modelDisplayLabel: "Perplexity"
 
     # ─── Deepseek (static list) ────────────────────────────────
@@ -66,22 +65,18 @@ endpoints:
       apiKey: "${DEEPSEEK_API_KEY}"
       baseURL: "https://api.deepseek.com/v1"
       models:
-        default:
-          - "deepseek-chat"
-          - "deepseek-coder"
-          - "deepseek-reasoner"
+        default: ["deepseek-chat", "deepseek-coder", "deepseek-reasoner"]
         fetch: false
       titleConvo: true
       titleModel: "deepseek-chat"
       modelDisplayLabel: "Deepseek"
 
     # ─── Grok (xAI) ─────────────────────────────────────────────
-    - name: "Grok"
+    - name: "xai"
       apiKey: "${XAI_API_KEY}"
       baseURL: "https://api.x.ai/v1"
       models:
-        default:
-          - "grok-beta"
+        default: ["grok-beta"]
         fetch: false
       titleConvo: true
       titleMethod: "completion"
