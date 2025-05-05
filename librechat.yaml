@@ -1,6 +1,30 @@
 # librechat.yaml
 endpoints:
   custom:
+    - name: "OpenAI"
+      apiKey: "${OPENAI_API_KEY}"
+      baseURL: "https://api.openai.com"
+      models:
+        fetch: true
+      titleConvo: true
+      modelDisplayLabel: "OpenAI"
+
+    - name: "Claude"
+      apiKey: "${ANTHROPIC_API_KEY}"
+      baseURL: "https://api.anthropic.com"
+      models:
+        fetch: true
+      titleConvo: true
+      modelDisplayLabel: "Claude"
+
+    - name: "Gemini"
+      apiKey: "${GOOGLE_KEY}"
+      baseURL: "https://generativelanguage.googleapis.com/v1beta2/models"
+      models:
+        fetch: true
+      titleConvo: true
+      modelDisplayLabel: "Gemini"
+
     - name: "Perplexity"
       apiKey: "${PERPLEXITY_API_KEY}"
       baseURL: "https://api.perplexity.ai/"
