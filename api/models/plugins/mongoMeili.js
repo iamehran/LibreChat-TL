@@ -1,3 +1,4 @@
+/// <reference types="lodash" />
 const _ = require('lodash');
 const mongoose = require('mongoose');
 const { MeiliSearch } = require('meilisearch');

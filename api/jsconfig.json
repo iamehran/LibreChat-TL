@@ -3,11 +3,16 @@
     "target": "ES6",
     "module": "CommonJS",
     // "checkJs": true,           // Report errors in JavaScript files
+    "typeRoots": ["./node_modules/@types", "./node_modules"],
+    "types": ["lodash"],
     "baseUrl": "./",
     "paths": {
       "*": ["*", "node_modules/*"],
       "~/*": ["./*"]
-    }
+    },
+    "noImplicitAny": false,
+    "skipLibCheck": true,
+    "ignoreDeprecations": "5.0"
   },
   "exclude": ["node_modules"]
 }

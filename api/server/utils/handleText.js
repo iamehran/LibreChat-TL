@@ -1,3 +1,4 @@
+/// <reference types="lodash" />
 const path = require('path');
 const crypto = require('crypto');
 const {
