@@ -9,14 +9,6 @@ endpoints:
       titleConvo: true
       modelDisplayLabel: "OpenAI"
 
-    - name: "Claude"
-      apiKey: "${ANTHROPIC_API_KEY}"
-      baseURL: "https://api.anthropic.com"
-      models:
-        fetch: true
-      titleConvo: true
-      modelDisplayLabel: "Claude"
-
     - name: "Gemini"
       apiKey: "${GOOGLE_KEY}"
       baseURL: "https://generativelanguage.googleapis.com/v1beta2/models"

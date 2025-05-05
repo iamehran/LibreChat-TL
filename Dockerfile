@@ -9,8 +9,6 @@ RUN apk add --no-cache jemalloc
 # Set environment variable to use jemalloc
 ENV LD_PRELOAD=/usr/lib/libjemalloc.so.2
 
-# Copy our custom config early
-COPY librechat.yaml ./
 
 # Try direct installation of uv instead of using the image
 RUN apk add --no-cache curl && \
