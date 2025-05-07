@@ -30,17 +30,6 @@ endpoints:
       dropParams: ["stop", "frequency_penalty"]
       modelDisplayLabel: "Perplexity"
 
-    # ─── Deepseek (static list) ────────────────────────────────
-    - name: "Deepseek"
-      apiKey: "${DEEPSEEK_API_KEY}"
-      baseURL: "https://api.deepseek.com/v1"
-      models:
-        default: ["deepseek-chat", "deepseek-coder", "deepseek-reasoner"]
-        fetch: false
-      titleConvo: true
-      titleModel: "deepseek-chat"
-      modelDisplayLabel: "Deepseek"
-
     # ─── Grok (xAI) ─────────────────────────────────────────────
     - name: "xai"
       apiKey: "${XAI_API_KEY}"
@@ -56,17 +45,3 @@ endpoints:
       forcePrompt: false
       modelDisplayLabel: "Grok"
       
-    # ─── Gemini (Google) ─────────────────────────────────────────
-    - name: "Gemini"
-      apiKey: "${GOOGLE_KEY}"
-      baseURL: "https://generativelanguage.googleapis.com/v1"
-      models:
-        default: ["gemini-1.0-pro", "gemini-1.5-pro", "gemini-1.5-flash", "gemini-2.5-pro", "gemini-2.5-flash", "gemini-1.5-pro-latest", "gemini-1.5-flash-latest", "gemini-2.5-pro-latest", "gemini-2.5-flash-latest", "gemini-1.5-pro-vision-latest", "gemini-1.5-flash-vision-latest", "gemini-2.5-pro-vision-latest", "gemini-2.5-flash-vision-latest"]
-        fetch: false 
-      titleConvo: true
-      titleModel: "gemini-1.5-pro"
-      summarize: false
-      summaryModel: "gemini-1.5-pro"
-      forcePrompt: false
-      modelDisplayLabel: "Gemini"
-# ─────────────────────────────────────────────────────────────

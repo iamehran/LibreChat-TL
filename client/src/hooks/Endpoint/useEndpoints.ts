@@ -80,6 +80,9 @@ export const useEndpoints = ({
       if (includedEndpoints.size > 0 && !includedEndpoints.has(endpoints[i])) {
         continue;
       }
+      if (endpoints[i] === EModelEndpoint.gptPlugins || endpoints[i] === EModelEndpoint.chatGPTBrowser) {
+        continue;
+      }
       result.push(endpoints[i]);
     }
 
