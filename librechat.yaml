@@ -6,6 +6,18 @@ cache: true
 balance:
   enabled: false
 
+agents:
+  global:
+    - name: "Image Generator"
+      model: "gpt-4o"
+      description: "Creates images from text descriptions"
+      tools:
+        - name: "openai_image_generation"
+          enabled: true
+        - name: "openai_image_editing" 
+          enabled: true
+
+
 endpoints:
   custom:
     # ─── Perplexity (static list) ─────────────────────────────
@@ -19,7 +31,9 @@ endpoints:
           "sonar-reasoning",
           "sonar-pro",
           "sonar",
-          "r1-1776"
+          "r1-1776",
+          "pplx-7b-online", 
+          "pplx-70b-online"
           ]
         fetch: false # fetching list of models is not supported
       titleConvo: true
@@ -36,13 +50,14 @@ endpoints:
       baseURL: "https://api.x.ai/v1"
       models:
         default: ["grok-beta", "grok-3-mini", "grok-3"]
-        fetch: false
+        fetch: true
       titleConvo: true
       titleMethod: "completion"
       titleModel: "grok-beta"
       summarize: false
       summaryModel: "grok-beta"
       forcePrompt: false
+      searchEnabled: true
       modelDisplayLabel: "Grok"
       
 
