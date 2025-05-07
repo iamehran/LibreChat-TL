@@ -6,12 +6,6 @@ cache: true
 balance:
   enabled: false
 
-# Search configuration goes here at the root level
-search:
-  enabled: true
-  provider: serper
-  key: ${SEARCH_KEY}
-
 # Endpoints should be at the root level, not nested under agents
 endpoints:
   agents:
