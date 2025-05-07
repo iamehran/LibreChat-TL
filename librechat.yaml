@@ -6,24 +6,24 @@ cache: true
 balance:
   enabled: false
 
-agents:
-  # Global agents available to all users
-  global:
-    - name: "Image Generator"
-      model: "gpt-4o"
-      description: "Creates images from text descriptions using OpenAI DALL-E"
-      instructions: "You are a specialized image generation assistant. Your primary purpose is to create images based on user descriptions. Be precise and detailed in interpreting what the user wants."
-      tools:
-        - name: "openai_image_generation"
-          enabled: true
-        - name: "openai_image_editing"
-          enabled: true
+# agents:
+#   # Global agents available to all users
+#   global:
+#     - name: "Image Generator"
+#       model: "gpt-4o"
+#       description: "Creates images from text descriptions using OpenAI DALL-E"
+#       instructions: "You are a specialized image generation assistant. Your primary purpose is to create images based on user descriptions. Be precise and detailed in interpreting what the user wants."
+#       tools:
+#         - name: "openai_image_generation"
+#           enabled: true
+#         - name: "openai_image_editing"
+#           enabled: true
 
-  # Global permissions
-  capabilities: ["execute_code", "file_search", "actions", "tools"]
-  sharing: true
-  disableBuilder: false
-  recursionLimit: 25
+#   # Global permissions
+#   capabilities: ["execute_code", "file_search", "actions", "tools"]
+#   sharing: true
+#   disableBuilder: false
+#   recursionLimit: 25
 
 # Endpoints should be at the root level, not nested under agents
 endpoints:
