@@ -45,3 +45,15 @@ endpoints:
       forcePrompt: false
       modelDisplayLabel: "Grok"
       
+
+
+agents:
+  global:
+    - name: "Image Generator"
+      model: "gpt-4o"
+      description: "Creates images from text descriptions"
+      tools:
+        - name: "openai_image_generation"
+          enabled: true
+        - name: "openai_image_editing"
+          enabled: true
